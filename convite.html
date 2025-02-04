@@ -4,125 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convite da Minha Formatura 🎓</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="estilo/style.css">
-   
-    
-        :root {
-            --dourado: #FFD700;
-            --roxo: #9B59B6;
-        }
-
-        body {
-            background: #0f0f0f;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            text-align: center;
-        }
-
-        .hero {
-            position: relative;
-            padding: 100px 20px 60px;
-            background: linear-gradient(45deg, var(--roxo), #1a1a1a);
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid var(--dourado);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
-            margin: 0 auto 30px;
-            overflow: hidden;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            margin: 20px 0;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
-
-        .details {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 40px 0;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-
-        .btn-confirm {
-            background: linear-gradient(45deg, var(--dourado), var(--roxo));
-            color: #1a1a1a;
-        }
-
-        .btn-decline {
-            background: linear-gradient(45deg, #FF6B6B, #ff9999);
-            color: white;
-        }
-
-        .typing {
-        font-size: 30px;
-        color: var(--cor2);
-        font-family: var(--fonte-do-texto);
-        border-right: 2px solid #D28FB1;  /* Simula o cursor */
-        white-space: nowrap;
-        overflow: hidden;
-        display: inline-block;
-        padding: 6px 4px 6px 4px;
-        font-family: 'Dancing Script', cursive;
-        font-size: 3.5rem;
-        margin: 20px 0;
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-       
-    }    
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Efeito de confete fixo */
-        #confetti-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
-    </style>
 </head>
 <body>
     <canvas id="confetti-canvas"></canvas>
-
     <div class="hero">
         <div class="profile-photo">
-            <img src="imagens/GAB05456.jpg" alt="foto-de-formatura">
+            <img src="imagens/GAB05411.jpg" alt="foto-de-formatura">
         </div>
         
         <h1 class="typing" id="typing-text">Celebre Este Momento Comigo!</h1>
