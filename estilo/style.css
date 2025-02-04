@@ -67,12 +67,48 @@ h1 {
 
 .btn {
     padding: 15px 40px;
-    border: none;
+    border: 2px solid transparent; /* Deixa a borda inicial invisível */
     border-radius: 30px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: all 0.3s;
     font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1); /* Efeito de vidro */
+    backdrop-filter: blur(10px); /* Desfoque para efeito de vidro */
+    transition: all 0.4s ease-in-out;
+    color: white;
+    z-index: 1;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    padding: 1px; /* Define a espessura da borda */
+    background: linear-gradient(45deg, var(--dourado), var(--roxo));
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.btn:hover::before {
+    opacity: 1;
+    background-color: transparent;
+    
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    backdrop-filter: none;
+    color: #FFD700; /* Para destacar o texto */
+    background: transparent;
+    border-color: rgb(255, 212, 20);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+   
 }
 
 .btn-confirm {
@@ -100,6 +136,89 @@ h1 {
     text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 
 }    
+.quadrado {
+    
+    display: inline-block;
+    background-color: #9B59B6;
+    height: 400px;
+    width: 400px;
+    border-radius: 40px;
+    margin: 10px;
+    overflow: hidden; /* Garante que nada vaze do quadrado */
+    transition: background 0.5s ease-in-out; /* Suaviza a transição */
+    position: relative;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    display: flex; /* Ativa o flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center; /* Garante alinhamento do texto */
+    padding: 0px; /* Evita que o texto encoste nas bordas */
+}
+
+.quadrados_conteiners {
+
+    display: flex; /* Alinha os quadrados em linha */
+    justify-content: center; /* Centraliza os quadrados */
+    gap: 20px; /* Espaço entre os quadrados */
+    flex-wrap: wrap; /* Faz com que quebrem de linha se não couberem */
+
+}
+
+.quadrado p {
+    transition: opacity 0.3s ease-in-out; /* Suaviza a transição */
+    color: #FFD700;
+}
+
+.quadrado:hover p {
+    opacity: 0; /* Faz o texto sumir ao passar o mouse */
+}
+
+#q1:hover {
+
+    background-image: url('../imagens/456A7690.jpg');
+    background-size: cover;
+    background-position: top center;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+
+    
+}
+#q2:hover {
+
+    background-image: url('../imagens/456A7711.jpg');
+    background-size: cover;
+    background-position: top center;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    
+}
+
+#q3:hover {
+
+    background-image: url('../imagens/GAB05411.jpg');
+    background-size: cover;
+    background-position: top center;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        
+}
+
+#q4:hover {
+
+    background-image: url('../imagens/GAB05456.jpg');
+    background-size: cover;
+    background-position: top center;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      
+}
+quadrado > p {
+    color: #FFD700;
+
+
+
+}
+
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
