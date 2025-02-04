@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite VIP da Minha Formatura 🎓</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --dourado: #FFD700;
+            --roxo: #9B59B6;
+        }
+
+        body {
+            background: #0f0f0f;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .hero {
+            position: relative;
+            padding: 100px 20px 60px;
+            background: linear-gradient(45deg, var(--roxo), #1a1a1a);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--dourado);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            margin: 0 auto 30px;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin: 20px 0;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .details {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-confirm {
+            background: linear-gradient(45deg, var(--dourado), var(--roxo));
+            color: #1a1a1a;
+        }
+
+        .btn-decline {
+            background: linear-gradient(45deg, #FF6B6B, #ff9999);
+            color: white;
+        }
+
+        .typing {
+        font-size: 30px;
+        color: var(--cor2);
+        font-family: var(--fonte-do-texto);
+        border-right: 2px solid #D28FB1;  /* Simula o cursor */
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        padding: 6px 4px 6px 4px;
+        text-shadow: 1px 1px 1px #442e3986;
+        background-color: var(--cor0);
+        border-radius: 5px;
+        box-shadow: 6px 4px 7px 1px #442e3986;
+    }    
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Efeito de confete fixo */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="hero">
+        <div class="profile-photo">
+            <img src="imagens/GAB05456.jpg" alt="foto-de-formatura">
+        </div>
+        
+        <h1 class="typing" id="typing-text">Celebre Este Momento Comigo!</h1>
+    </div>
+
+    <div class="details">
+        <p>📅 Data: 14/03/2025</p>
+        <p>⏰ Hora: 19:30</p>
+        <p>📍 Local: Mansão dos Sonhos - Av. das Conquistas, 1000</p>
+    </div>
+
+    <div class="buttons">
+        <button class="btn btn-confirm" onclick="confirmarPresenca()">Confirmar Presença 🎉</button>
+        <button class="btn btn-decline" onclick="naoPoderIr()">Não Poderei Ir 😢</button>
+    </div>
+
+    <script>
+        // Efeito de confete personalizado
+        function lancarConfetes() {
+            confetti({
+                particleCount: 150,
+                spread: 100,
+                origin: { y: 0.6 },
+                colors: ['#FFD700', '#9B59B6', '#FF6B6B'],
+                shapes: ['circle', 'star']
+            });
+        }
+
+        function confirmarPresenca() {
+            lancarConfetes();
+            alert("🎉 Oba! Sua presença está confirmada!\nMal posso esperar para comemorar com você!");
+        }
+
+        function naoPoderIr() {
+            const mensagem = prompt("Que pena! Quer deixar uma mensagem motivadora? ✨");
+            if(mensagem) {
+                alert("📝 Mensagem registrada: \"" + mensagem + "\"\nMuito obrigado pelo carinho!");
+            }
+        }
+    </script>
+    <script>
+        // Efeito de digitação no título
+        const titulo = document.querySelector('h1');
+        titulo.style.opacity = '0';
+        
+        setTimeout(() => {
+            titulo.style.transition = 'opacity 1.5s';
+            titulo.style.opacity = '1';
+        }, 1000);
+
+        
+        const textElement = document.getElementById('typing-text'); 
+        const text = "Cerebre este momento comigo"; // O texto que será digitado
+        let index = 0; 
+        let isDeleting = false;
+    
+        function typeEffect() {
+            if (!isDeleting && index < text.length) {
+                textElement.textContent = text.substring(0, index + 1); // Adiciona uma letra
+                index++;
+                setTimeout(typeEffect, 150); // Tempo para cada letra aparecer
+            } else if (isDeleting && index > 0) {
+                textElement.textContent = text.substring(0, index - 1); // Remove uma letra
+                index--;
+                setTimeout(typeEffect, 100); // Tempo para apagar
+            } else {
+                isDeleting = !isDeleting; // Alterna entre escrever e apagar
+                setTimeout(typeEffect, 1000); // Tempo de espera antes de inverter
+            }
+        }
+    
+        typeEffect();
+    </script>
+    </script>
+</body>
+</html>
