@@ -46,6 +46,7 @@ h1 {
     font-size: 3.5rem;
     margin: 20px 0;
     text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    
 }
 
 .details {
@@ -153,6 +154,9 @@ h1 {
     justify-content: center; /* Centraliza horizontalmente */
     text-align: center; /* Garante alinhamento do texto */
     padding: 0px; /* Evita que o texto encoste nas bordas */
+    background-image: url('../imagens/girasol-rosa\(1\).jpg');
+    background-size: cover;
+
 }
 
 .quadrados_conteiners {
@@ -166,12 +170,19 @@ h1 {
 
 .quadrado p {
     transition: opacity 0.3s ease-in-out; /* Suaviza a transição */
-    color: #FFD700;
+    color: white;
+    font-weight: normal;
+    background-color: #ffd900a1;
+    padding: 3px;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 217, 0, 0.705);
+    
 }
 
 .quadrado:hover p {
     opacity: 0; /* Faz o texto sumir ao passar o mouse */
 }
+
 
 #q1:hover {
 
@@ -214,8 +225,6 @@ h1 {
 }
 quadrado > p {
     color: #FFD700;
-
-
 
 }
 
