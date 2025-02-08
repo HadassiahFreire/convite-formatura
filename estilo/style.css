@@ -75,6 +75,7 @@ body, html {
     box-shadow: 0 0 30px rgba(255, 217, 0, 0.644);
     margin: 30px auto 30px;
     overflow: hidden;
+    background-position: top center;
     animation: float 6s ease-in-out infinite; 
     background-position: top center;
 }
