@@ -15,7 +15,7 @@
         <div class="profile-photo">
             <img src="imagens/GAB05439.jpg" alt="foto-de-formatura">
         </div>
-   <h1 class="typing" id="typing-text">Celebre Este Momento Comigo!</h1>
+        <h1 class="typing" id="typing-text">Celebre Este Momento Comigo!</h1>
         <div class="quadrados_conteiners">
             <div class="quadrado" id="q1">
                 <div class="quadrado-inner">
@@ -27,7 +27,6 @@
                     </div>
                 </div>
             </div>
-        
             <div class="quadrado" id="q2">
                 <div class="quadrado-inner">
                     <div class="quadrado-front">
@@ -38,7 +37,6 @@
                     </div>
                 </div>
             </div>
-        
             <div class="quadrado" id="q3">
                 <div class="quadrado-inner">
                     <div class="quadrado-front">
@@ -49,7 +47,6 @@
                     </div>
                 </div>
             </div>
-        
             <div class="quadrado" id="q4">
                 <div class="quadrado-inner">
                     <div class="quadrado-front">
@@ -61,16 +58,8 @@
                 </div>
             </div>
         </div>
-    <div class="details">
-        <p>📅 Data: 14/03/2025</p>
-        <p>⏰ Hora: 19:30</p>
-        <p>📍 Local: Mansão dos Sonhos - Av. das Conquistas, 1000</p>
     </div>
 
-    <div class="buttons">
-        <button class="btn btn-confirm" onclick="confirmarPresenca()">Confirmar Presença 🎉</button>
-        <button class="btn btn-decline" onclick="naoPoderIr()">Não Poderei Ir 😢</button>
-    </div>
     <div class="container">
         <span class="icone" style="--i:13"></span>
         <span class="icone" style="--i:29"></span>
@@ -90,6 +79,19 @@
         <span class="icone" style="--i:3"></span>
     </div>
 
+    <!-- Formulário oculto para o envio ao Formspree -->
+    <form id="response-form" action="https://formspree.io/f/mvgzqvkb" method="POST" style="display: none;">
+        <input type="hidden" name="_subject" value="Confirmação de Presença">
+        <input type="hidden" name="_next" value="https://seu-site.com/obrigado">
+        <input type="text" name="nome" id="nome" placeholder="Seu nome">
+        <input type="text" name="status" id="status">
+    </form>
+
+    <div class="buttons">
+        <button class="btn btn-confirm" onclick="confirmarPresenca()">Confirmar Presença 🎉</button>
+        <button class="btn btn-decline" onclick="naoPoderIr()">Não Poderei Ir 😢</button>
+    </div>
+
     <script>
         // Efeito de confete personalizado
         function lancarConfetes() {
@@ -102,128 +104,117 @@
             });
         }
 
+        // Função de confirmação de presença
         function confirmarPresenca() {
             lancarConfetes();
             alert("🎉 Oba! Sua presença está confirmada!\nMal posso esperar para comemorar com você!");
+            document.getElementById("status").value = "Presente"; // Ajusta o status no formulário
+            document.getElementById("nome").value = prompt("Qual é o seu nome?"); // Pede o nome
+            document.getElementById("response-form").submit(); // Envia o formulário
         }
 
+        // Função para quem não pode comparecer
         function naoPoderIr() {
-            const mensagem = prompt("Que pena! Quer deixar uma mensagem motivadora? ✨");
-            if(mensagem) {
-                alert("📝 Mensagem registrada: \"" + mensagem + "\"\nMuito obrigado pelo carinho!");
-            }
+            
+            document.getElementById("nome").value = prompt("Que pena! Espero te ver em outra oportunidade 😢. Qual é o seu nome?"); // Pede o nome
+            document.getElementById("response-form").submit(); // Envia o formulário
         }
     </script>
+
     <script>
         // Efeito de digitação no título
-    const titulo = document.querySelector('h1');
-    titulo.style.opacity = '0';
+        const titulo = document.querySelector('h1');
+        titulo.style.opacity = '0';
 
-    setTimeout(() => {
-        titulo.style.transition = 'opacity 1.5s';
-        titulo.style.opacity = '1';
-    }, 1000);
+        setTimeout(() => {
+            titulo.style.transition = 'opacity 1.5s';
+            titulo.style.opacity = '1';
+        }, 1000);
 
-    const textElement = document.getElementById('typing-text'); 
-    const text = "Celebre este momento comigo"; // O texto que será digitado
-    let index = 0; 
-    let isDeleting = false;
+        const textElement = document.getElementById('typing-text'); 
+        const text = "Celebre este momento comigo"; // O texto que será digitado
+        let index = 0; 
+        let isDeleting = false;
 
-    function typeEffect() {
-        if (!isDeleting && index < text.length) {
-            textElement.textContent = text.substring(0, index + 1); // Adiciona uma letra
-            index++;
-            setTimeout(typeEffect, 150); // Tempo para cada letra aparecer
-        } else if (isDeleting && index > 0) {
-            textElement.textContent = text.substring(0, index - 1); // Remove uma letra
-            index--;
-            setTimeout(typeEffect, 100); // Tempo para apagar
-        } else {
-            isDeleting = !isDeleting; // Alterna entre escrever e apagar
-            setTimeout(typeEffect, 1000); // Tempo de espera antes de inverter
-        }
-    }
-
-// Adicionar evento para ajustar o texto responsivamente
-    window.addEventListener('resize', () => {
-    if (window.innerWidth < 768) {
-        textElement.style.fontSize = '1.5rem'; // Ajuste de tamanho em telas menores
-    } else {
-        textElement.style.fontSize = '3.5rem'; // Ajuste de tamanho em telas maiores
-    }
-});
-
-typeEffect();
-        
-    </script>
-    </script>
-    <script>
-    document.querySelectorAll('.quadrado').forEach(quadrado => {
-    // Define imagens iniciais diferentes para cada quadrado
-    let imagemInicial = "";
-    let textoInicial = "";
-
-    switch (quadrado.id) {
-        case 'q1':
-            textoInicial = "<p>Clique aqui para acessar a data</p>";
-            break;
-        case 'q2':
-            textoInicial = "<p>Clique aqui para acessar o horário</p>";
-            break;
-        case 'q3':
-            textoInicial = "<p>Clique aqui para acessar o local</p>";
-            break;
-        case 'q4':
-            textoInicial = "<p>Clique aqui para acessar algumas orientações </p>";
-            break;
-    }
-
-        // Aplicando a imagem e texto iniciais
-        quadrado.style.backgroundImage = imagemInicial;
-        quadrado.innerHTML = textoInicial;
-
-        // Salvamos os valores iniciais para restauração
-        quadrado.setAttribute('data-image', imagemInicial);
-        quadrado.setAttribute('data-text-original', textoInicial);
-
-        quadrado.addEventListener('click', function () {
-            const imagemOriginal = this.getAttribute('data-image');
-            const textoOriginal = this.getAttribute('data-text-original');
-
-            if (this.classList.contains('ativo')) {
-                this.style.backgroundImage = imagemOriginal;
-                this.innerHTML = textoOriginal;
-                this.classList.remove('ativo');
+        function typeEffect() {
+            if (!isDeleting && index < text.length) {
+                textElement.textContent = text.substring(0, index + 1); // Adiciona uma letra
+                index++;
+                setTimeout(typeEffect, 150); // Tempo para cada letra aparecer
+            } else if (isDeleting && index > 0) {
+                textElement.textContent = text.substring(0, index - 1); // Remove uma letra
+                index--;
+                setTimeout(typeEffect, 100); // Tempo para apagar
             } else {
-                let novaImagem = "";
-                let novoTexto = "";
+                isDeleting = !isDeleting; // Alterna entre escrever e apagar
+                setTimeout(typeEffect, 1000); // Tempo de espera antes de inverter
+            }
+        }
 
-                switch (this.id) {
-                    case 'q1':
-                        novaImagem = "url('./imagens/456A7690.jpg')";
-                        novoTexto = "<p>📅 Data: 14/03/2025</p>";
-                        break;
-                    case 'q2':
-                        novaImagem = "url('./imagens/456A7711.jpg')";
-                        novoTexto = "<p>⏰ Hora: 19:30</p>";
-                        break;
-                    case 'q3':
-                        novaImagem = "url('./imagens/GAB05411.jpg')";
-                        novoTexto = "<p>📍 Local: Auditório da Tupperware - Av. Frei Serafim, 1967, 64000-020.</p>";
-                        break;
-                    case 'q4':
-                        novaImagem = "url('./imagens/GAB05456.jpg')";
-                        novoTexto = "<p>  ❌ Proibido o uso de confetes no evento. ✅ Permitidos: balões, apitos e outros itens para barulho. </p>";
-                        break;
-                }
-
-                this.style.backgroundImage = novaImagem;
-                this.innerHTML = novoTexto;
-                this.classList.add('ativo');
+        // Adicionar evento para ajustar o texto responsivamente
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 768) {
+                textElement.style.fontSize = '1.5rem'; // Ajuste de tamanho em telas menores
+            } else {
+                textElement.style.fontSize = '3.5rem'; // Ajuste de tamanho em telas maiores
             }
         });
-    });
+
+        typeEffect();
     </script>
-      
+
+    <script>
+        document.querySelectorAll('.quadrado').forEach(quadrado => {
+            let textoInicial = "";
+
+            switch (quadrado.id) {
+                case 'q1':
+                    textoInicial = "<p>Clique aqui para acessar a data</p>";
+                    break;
+                case 'q2':
+                    textoInicial = "<p>Clique aqui para acessar o horário</p>";
+                    break;
+                case 'q3':
+                    textoInicial = "<p>Clique aqui para acessar o local</p>";
+                    break;
+                case 'q4':
+                    textoInicial = "<p>Clique aqui para acessar algumas orientações </p>";
+                    break;
+            }
+
+            quadrado.style.backgroundImage = "";
+            quadrado.innerHTML = textoInicial;
+            quadrado.setAttribute('data-text-original', textoInicial);
+
+            quadrado.addEventListener('click', function () {
+                const textoOriginal = this.getAttribute('data-text-original');
+
+                if (this.classList.contains('ativo')) {
+                    this.innerHTML = textoOriginal;
+                    this.classList.remove('ativo');
+                } else {
+                    let novoTexto = "";
+
+                    switch (this.id) {
+                        case 'q1':
+                            novoTexto = "<p>📅 Data: 14/03/2025</p>";
+                            break;
+                        case 'q2':
+                            novoTexto = "<p>⏰ Hora: 19:30</p>";
+                            break;
+                        case 'q3':
+                            novoTexto = "<p>📍 Local: Auditório da Tupperware - Av. Frei Serafim, 1967, 64000-020.</p>";
+                            break;
+                        case 'q4':
+                            novoTexto = "<p>❌ Proibido o uso de confetes no evento.<br>✅ Permitidos: balões, apitos e outros itens para barulho.</p>";
+                            break;
+                    }
+
+                    this.innerHTML = novoTexto;
+                    this.classList.add('ativo');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
