@@ -264,6 +264,7 @@ h1 {
     transition: background-image 0.5s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
     text-align: center;
     line-height: 1.7;
+    font-weight: bolder;
 }
 .quadrado p:hover {
 
@@ -272,7 +273,9 @@ h1 {
     opacity: 1px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
     color: #580521;
+    text-shadow: 1px 1px 1px #00000077;
     font-weight: bolder;
+    background-color: #cbac985d; ;
     
 
 }
