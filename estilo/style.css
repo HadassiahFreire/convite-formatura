@@ -5,10 +5,14 @@
 :root {
     --dourado: #FFD700;
     --roxo: #9B59B6;
+    --cor01: #CBAC98; 
+    --cor02: #580521; 
+    --cor03: #FFEBC0; 
+    --cor04: #FFDF88;  
 }
 
 body {
-    background: #0f0f0f;
+    background: linear-gradient(to right, #CBAC98, #580521);
     color: white;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
@@ -19,6 +23,8 @@ body, html {
     padding: 0;
     width: 100%;
     min-height: 100vh;
+    
+
 }
 .container {
     position: fixed;
@@ -62,11 +68,11 @@ body, html {
 }
 
 .profile-photo {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
-    border: 5px solid var(--dourado);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    border: 1px solid white;
+    box-shadow: 0 0 30px rgba(255, 217, 0, 0.644);
     margin: 30px auto 30px;
     overflow: hidden;
     animation: float 6s ease-in-out infinite; 
@@ -161,24 +167,34 @@ h1 {
 }
 
 .typing {
-    font-size: 30px;
+    font-size: 3.5rem;
     color: var(--cor2);
-    font-family: var(--fonte-do-texto);
     border-right: 2px solid #D28FB1;  /* Simula o cursor */
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
     padding: 6px 4px 6px 4px;
     font-family: 'Dancing Script', cursive;
-    font-size: 3.5rem;
     margin: 20px 0;
+    word-wrap: break-word;
+    text-align: center;
     text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    max-width: 100%;
 
 }    
+.quadrado:hover {
+    transform: scale(1.10);
+    border: 1px solid #FFDF88 ;
+    opacity: 1px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    color: var(--cor04);
+    
+    
+}
 .quadrado {
     
-    display: inline-block;
-    background-color: #9B59B6;
+    
+    border: 1px solid white;
     height: 400px;
     width: 400px;
     border-radius: 40px;
@@ -192,11 +208,20 @@ h1 {
     justify-content: center; /* Centraliza horizontalmente */
     text-align: center; /* Garante alinhamento do texto */
     padding: 0px; /* Evita que o texto encoste nas bordas */
-    background-image: url('../imagens/girasol-rosa\(1\).jpg');
     background-size: cover;
+    cursor: pointer;
+    transition: background-image 0.5s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 1;
+
 
 }
-
+.animacao {
+    transform: scale(0.98);
+    opacity: 0.7;
+}
+.quadrado:active {
+    transform: scale(0.95);
+}
 .quadrados_conteiners {
 
     display: flex; /* Alinha os quadrados em linha */
@@ -214,7 +239,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('caminho/para/sua/imagem.png');
+ 
     background-size: cover;
     background-position: center;
     filter: blur(10px); /* Aplica o desfoque */
@@ -223,60 +248,18 @@ h1 {
 }
 
 .quadrado p {
-    transition: opacity 0.3s ease-in-out; /* Suaviza a transição */
+
+    transition: opacity 0.5s ease-in-out;
+    font-size: 1.2rem;
     color: white;
-    font-weight: normal;
-    background-color: #ffd900a1;
-    padding: 3px;
-    border-radius: 10px;
-    border: 3px solid rgba(255, 217, 0, 0.705);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 8px;
     
 }
 
-.quadrado:hover p {
-    opacity: 0; /* Faz o texto sumir ao passar o mouse */
-}
 
 
-#q1:hover {
-
-    background-image: url('../imagens/456A7690.jpg');
-    background-size: cover;
-    background-position: top center;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-
-    
-}
-#q2:hover {
-
-    background-image: url('../imagens/456A7711.jpg');
-    background-size: cover;
-    background-position: top center;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-    
-}
-
-#q3:hover {
-
-    background-image: url('../imagens/GAB05411.jpg');
-    background-size: cover;
-    background-position: top center;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        
-}
-
-#q4:hover {
-
-    background-image: url('../imagens/GAB05456.jpg');
-    background-size: cover;
-    background-position: top center;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-      
-}
 quadrado > p {
     color: #FFD700;
 
@@ -294,4 +277,9 @@ quadrado > p {
     top: 0;
     left: 0;
     pointer-events: none;
+}
+@media (max-width: 768px) {
+    h1.typing {
+        font-size: 2rem; /* Ajusta o tamanho do texto em telas menores */
+    }
 }
