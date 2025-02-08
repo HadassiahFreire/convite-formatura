@@ -59,6 +59,11 @@
             </div>
         </div>
     </div>
+    <div class="details">
+        <p>📅 Data: 14/03/2025</p>
+        <p>⏰ Hora: 19:30</p>
+        <p>📍 Local: Mansão dos Sonhos - Av. das Conquistas, 1000</p>
+    </div>
 
     <div class="container">
         <span class="icone" style="--i:13"></span>
@@ -165,51 +170,65 @@
 
     <script>
         document.querySelectorAll('.quadrado').forEach(quadrado => {
-            let textoInicial = "";
+        // Define imagens iniciais diferentes para cada quadrado
+        let imagemInicial = "";
+        let textoInicial = "";
 
-            switch (quadrado.id) {
-                case 'q1':
-                    textoInicial = "<p>Clique aqui para acessar a data</p>";
-                    break;
-                case 'q2':
-                    textoInicial = "<p>Clique aqui para acessar o horário</p>";
-                    break;
-                case 'q3':
-                    textoInicial = "<p>Clique aqui para acessar o local</p>";
-                    break;
-                case 'q4':
-                    textoInicial = "<p>Clique aqui para acessar algumas orientações </p>";
-                    break;
-            }
+        switch (quadrado.id) {
+            case 'q1':
+                textoInicial = "<p>Clique aqui para acessar a data</p>";
+                break;
+            case 'q2':
+                textoInicial = "<p>Clique aqui para acessar o horário</p>";
+                break;
+            case 'q3':
+                textoInicial = "<p>Clique aqui para acessar o local</p>";
+                break;
+            case 'q4':
+                textoInicial = "<p>Clique aqui para acessar algumas orientações </p>";
+                break;
+        }
 
-            quadrado.style.backgroundImage = "";
+            // Aplicando a imagem e texto iniciais
+            quadrado.style.backgroundImage = imagemInicial;
             quadrado.innerHTML = textoInicial;
+
+            // Salvamos os valores iniciais para restauração
+            quadrado.setAttribute('data-image', imagemInicial);
             quadrado.setAttribute('data-text-original', textoInicial);
 
             quadrado.addEventListener('click', function () {
+                const imagemOriginal = this.getAttribute('data-image');
                 const textoOriginal = this.getAttribute('data-text-original');
 
                 if (this.classList.contains('ativo')) {
+                    this.style.backgroundImage = imagemOriginal;
                     this.innerHTML = textoOriginal;
                     this.classList.remove('ativo');
                 } else {
+                    let novaImagem = "";
                     let novoTexto = "";
 
                     switch (this.id) {
                         case 'q1':
+                            novaImagem = "url('./imagens/456A7690.jpg')";
                             novoTexto = "<p>📅 Data: 14/03/2025</p>";
                             break;
                         case 'q2':
+                            novaImagem = "url('./imagens/456A7711.jpg')";
                             novoTexto = "<p>⏰ Hora: 19:30</p>";
                             break;
                         case 'q3':
+                            novaImagem = "url('./imagens/GAB05411.jpg')";
                             novoTexto = "<p>📍 Local: Auditório da Tupperware - Av. Frei Serafim, 1967, 64000-020.</p>";
                             break;
                         case 'q4':
-                            novoTexto = "<p>❌ Proibido o uso de confetes no evento.<br>✅ Permitidos: balões, apitos e outros itens para barulho.</p>";
+                            novaImagem = "url('./imagens/GAB05456.jpg')";
+                            novoTexto = "<p>  ❌ Proibido o uso de confetes no evento. ✅ Permitidos: balões, apitos e outros itens para barulho. </p>";
                             break;
                     }
 
+                    this.style.backgroundImage = novaImagem;
                     this.innerHTML = novoTexto;
                     this.classList.add('ativo');
                 }
