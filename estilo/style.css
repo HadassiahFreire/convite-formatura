@@ -63,7 +63,7 @@ body, html {
     position: relative;
     padding: 100px 20px 60px;
     background: linear-gradient(45deg, var(--roxo), #1a1a1a);
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    
     
 }
 
@@ -194,7 +194,6 @@ h1 {
 }
 .quadrado {
     
-    
     border: 1px solid #ffffff;
     height: 350px;
     width: 350px;
@@ -214,6 +213,7 @@ h1 {
     transition: background-image 0.5s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 1;
     box-shadow: 4px 6px 5px 1px #00000034;
+  
 
 
 }
@@ -230,6 +230,7 @@ h1 {
     justify-content: center; /* Centraliza os quadrados */
     gap: 20px; /* Espaço entre os quadrados */
     flex-wrap: wrap; /* Faz com que quebrem de linha se não couberem */
+    
 
 }
 
@@ -255,21 +256,39 @@ h1 {
 .quadrado p {
 
     transition: opacity 0.5s ease-in-out;
+    border: 1px solid white;
     font-size: 1.2rem;
     color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 8px;
+    background-color: #cbac983d;
+    padding: 30px;
+    transition: background-image 0.5s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    text-align: center;
+    line-height: 1.7;
+}
+.quadrado p:hover {
+
+    transform: scale(1.05);
+    border: 1px solid #FFDF88 ;
+    opacity: 1px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    color: #580521;
+    font-weight: bolder;
     
-}
-
-
-
-quadrado > p {
-    color: #FFD700;
 
 }
+.quadrado p:active {
 
+   
+    
+    color: #dddf6b;
+    
+
+}
+
+--cor01: #CBAC98; 
+--cor02: #580521; 
+--cor03: #FFEBC0; 
+--cor04: #FFDF88;  
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }

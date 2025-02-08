@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convite da Minha Formatura 🎓</title>
+    
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="estilo/style.css">
@@ -14,28 +15,52 @@
         <div class="profile-photo">
             <img src="imagens/GAB05439.jpg" alt="foto-de-formatura">
         </div>
+   <h1 class="typing" id="typing-text">Celebre Este Momento Comigo!</h1>
+        <div class="quadrados_conteiners">
+            <div class="quadrado" id="q1">
+                <div class="quadrado-inner">
+                    <div class="quadrado-front">
+                        <p>Clique aqui para acessar a data</p>
+                    </div>
+                    <div class="quadrado-back">
+                        <p>📅 Data: 14/03/2025</p>
+                    </div>
+                </div>
+            </div>
         
-        <h1 class="typing" id="typing-text">Celebre Este Momento Comigo!</h1>
-    </div>
-<div class="quadrados_conteiners">
-    
-        <div class="quadrado" id="q1" data-text="📅 Data: 14/03/2025">
-            <p>Clique aqui para acessar a data</p>
-    
+            <div class="quadrado" id="q2">
+                <div class="quadrado-inner">
+                    <div class="quadrado-front">
+                        <p>Clique aqui para acessar o horário</p>
+                    </div>
+                    <div class="quadrado-back">
+                        <p>⏰ Hora: 19:30</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="quadrado" id="q3">
+                <div class="quadrado-inner">
+                    <div class="quadrado-front">
+                        <p>Clique aqui para acessar o local</p>
+                    </div>
+                    <div class="quadrado-back">
+                        <p>📍 Local: Auditório da Tupperware - Av. Frei Serafim, 1967, 64000-020.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="quadrado" id="q4">
+                <div class="quadrado-inner">
+                    <div class="quadrado-front">
+                        <p>Clique aqui para ver algumas orientações</p>
+                    </div>
+                    <div class="quadrado-back">
+                        <p>❌ Proibido o uso de confetes no evento.<br>✅ Permitidos: balões, apitos e outros itens para barulho.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="quadrado" id="q2" data-text="⏰ Hora: 19:30">
-            <p>Clique aqui para acessar o horário</p>
-    
-        </div>
-        <div class="quadrado" id="q3" data-text="📍 Local: Auditório da Tupperware - Av. Frei Serafim, 1967, 64000-020.">
-            <p>Clique aqui para acessar o local</p>
-    
-        </div>
-        <div class="quadrado" id="q4" data-text="📍 Local: Mansão dos Sonhos - Av. das Conquistas, 1000">
-            <p>Clique aqui para ver algumas orientações</p>
-        </div>
-</div>
-
     <div class="details">
         <p>📅 Data: 14/03/2025</p>
         <p>⏰ Hora: 19:30</p>
@@ -91,38 +116,38 @@
     </script>
     <script>
         // Efeito de digitação no título
-const titulo = document.querySelector('h1');
-titulo.style.opacity = '0';
+    const titulo = document.querySelector('h1');
+    titulo.style.opacity = '0';
 
-setTimeout(() => {
-    titulo.style.transition = 'opacity 1.5s';
-    titulo.style.opacity = '1';
-}, 1000);
+    setTimeout(() => {
+        titulo.style.transition = 'opacity 1.5s';
+        titulo.style.opacity = '1';
+    }, 1000);
 
-const textElement = document.getElementById('typing-text'); 
-const text = "Celebre este momento comigo"; // O texto que será digitado
-let index = 0; 
-let isDeleting = false;
+    const textElement = document.getElementById('typing-text'); 
+    const text = "Celebre este momento comigo"; // O texto que será digitado
+    let index = 0; 
+    let isDeleting = false;
 
-function typeEffect() {
-    if (!isDeleting && index < text.length) {
-        textElement.textContent = text.substring(0, index + 1); // Adiciona uma letra
-        index++;
-        setTimeout(typeEffect, 150); // Tempo para cada letra aparecer
-    } else if (isDeleting && index > 0) {
-        textElement.textContent = text.substring(0, index - 1); // Remove uma letra
-        index--;
-        setTimeout(typeEffect, 100); // Tempo para apagar
-    } else {
-        isDeleting = !isDeleting; // Alterna entre escrever e apagar
-        setTimeout(typeEffect, 1000); // Tempo de espera antes de inverter
+    function typeEffect() {
+        if (!isDeleting && index < text.length) {
+            textElement.textContent = text.substring(0, index + 1); // Adiciona uma letra
+            index++;
+            setTimeout(typeEffect, 150); // Tempo para cada letra aparecer
+        } else if (isDeleting && index > 0) {
+            textElement.textContent = text.substring(0, index - 1); // Remove uma letra
+            index--;
+            setTimeout(typeEffect, 100); // Tempo para apagar
+        } else {
+            isDeleting = !isDeleting; // Alterna entre escrever e apagar
+            setTimeout(typeEffect, 1000); // Tempo de espera antes de inverter
+        }
     }
-}
 
 // Adicionar evento para ajustar o texto responsivamente
-window.addEventListener('resize', () => {
+    window.addEventListener('resize', () => {
     if (window.innerWidth < 768) {
-        textElement.style.fontSize = '2rem'; // Ajuste de tamanho em telas menores
+        textElement.style.fontSize = '1.5rem'; // Ajuste de tamanho em telas menores
     } else {
         textElement.style.fontSize = '3.5rem'; // Ajuste de tamanho em telas maiores
     }
@@ -133,7 +158,7 @@ typeEffect();
     </script>
     </script>
     <script>
-document.querySelectorAll('.quadrado').forEach(quadrado => {
+    document.querySelectorAll('.quadrado').forEach(quadrado => {
     // Define imagens iniciais diferentes para cada quadrado
     let imagemInicial = "";
     let textoInicial = "";
@@ -153,51 +178,51 @@ document.querySelectorAll('.quadrado').forEach(quadrado => {
             break;
     }
 
-    // Aplicando a imagem e texto iniciais
-    quadrado.style.backgroundImage = imagemInicial;
-    quadrado.innerHTML = textoInicial;
+        // Aplicando a imagem e texto iniciais
+        quadrado.style.backgroundImage = imagemInicial;
+        quadrado.innerHTML = textoInicial;
 
-    // Salvamos os valores iniciais para restauração
-    quadrado.setAttribute('data-image', imagemInicial);
-    quadrado.setAttribute('data-text-original', textoInicial);
+        // Salvamos os valores iniciais para restauração
+        quadrado.setAttribute('data-image', imagemInicial);
+        quadrado.setAttribute('data-text-original', textoInicial);
 
-    quadrado.addEventListener('click', function () {
-        const imagemOriginal = this.getAttribute('data-image');
-        const textoOriginal = this.getAttribute('data-text-original');
+        quadrado.addEventListener('click', function () {
+            const imagemOriginal = this.getAttribute('data-image');
+            const textoOriginal = this.getAttribute('data-text-original');
 
-        if (this.classList.contains('ativo')) {
-            this.style.backgroundImage = imagemOriginal;
-            this.innerHTML = textoOriginal;
-            this.classList.remove('ativo');
-        } else {
-            let novaImagem = "";
-            let novoTexto = "";
+            if (this.classList.contains('ativo')) {
+                this.style.backgroundImage = imagemOriginal;
+                this.innerHTML = textoOriginal;
+                this.classList.remove('ativo');
+            } else {
+                let novaImagem = "";
+                let novoTexto = "";
 
-            switch (this.id) {
-                case 'q1':
-                    novaImagem = "url('./imagens/456A7690.jpg')";
-                    novoTexto = "<p>📅 Data: 14/03/2025</p>";
-                    break;
-                case 'q2':
-                    novaImagem = "url('./imagens/456A7711.jpg')";
-                    novoTexto = "<p>⏰ Hora: 19:30</p>";
-                    break;
-                case 'q3':
-                    novaImagem = "url('./imagens/GAB05411.jpg')";
-                    novoTexto = "<p>📍 Local: Auditório da Tupperware - Av. Frei Serafim, 1967, 64000-020.</p>";
-                    break;
-                case 'q4':
-                    novaImagem = "url('./imagens/GAB05456.jpg')";
-                    novoTexto = "<p>  Proibido o uso de confetes no evento. Permitidos: balões, apitos e outros itens para barulho. </p>";
-                    break;
+                switch (this.id) {
+                    case 'q1':
+                        novaImagem = "url('./imagens/456A7690.jpg')";
+                        novoTexto = "<p>📅 Data: 14/03/2025</p>";
+                        break;
+                    case 'q2':
+                        novaImagem = "url('./imagens/456A7711.jpg')";
+                        novoTexto = "<p>⏰ Hora: 19:30</p>";
+                        break;
+                    case 'q3':
+                        novaImagem = "url('./imagens/GAB05411.jpg')";
+                        novoTexto = "<p>📍 Local: Auditório da Tupperware - Av. Frei Serafim, 1967, 64000-020.</p>";
+                        break;
+                    case 'q4':
+                        novaImagem = "url('./imagens/GAB05456.jpg')";
+                        novoTexto = "<p>  ❌ Proibido o uso de confetes no evento. ✅ Permitidos: balões, apitos e outros itens para barulho. </p>";
+                        break;
+                }
+
+                this.style.backgroundImage = novaImagem;
+                this.innerHTML = novoTexto;
+                this.classList.add('ativo');
             }
-
-            this.style.backgroundImage = novaImagem;
-            this.innerHTML = novoTexto;
-            this.classList.add('ativo');
-        }
+        });
     });
-});
     </script>
     
 </body>
