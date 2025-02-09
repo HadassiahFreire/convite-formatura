@@ -49,6 +49,7 @@ body {
     font-family: 'Great', cursive;
     display: block; /* Garante que fique em cima */
     text-align: center;
+    
 }
 
 .subtitulo {
@@ -112,7 +113,7 @@ body, html {
 
 .hero {
     position: relative;
-    padding: 100px 20px 60px;
+    padding: 25px 20px 60px;
     background: linear-gradient(45deg, var(--roxo), #1a1a1a);
     
     
