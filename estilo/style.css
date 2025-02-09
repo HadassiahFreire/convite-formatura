@@ -43,11 +43,12 @@ body {
 }
 
 .psicologia {
-    font-size: 110px;
+    font-size: 100px;
     font-weight: bold;
     color: #ffdf8873;
     font-family: 'Great', cursive;
     display: block; /* Garante que fique em cima */
+    text-align: center;
 }
 
 .subtitulo {
