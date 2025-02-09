@@ -2,14 +2,32 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courgette&family=Passion+One:wght@400;700;900&family=Sriracha&family=Style+Script&family=Tangerine:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courgette&family=Great+Vibes&family=Passion+One:wght@400;700;900&family=Sriracha&family=Style+Script&family=Tangerine:wght@400;700&display=swap');
+
+
+
 :root {
-    --dourado: #FFD700;
+    
+    --dourado:#FFD700;
     --roxo: #9B59B6;
     --cor01: #CBAC98; 
     --cor02: #580521; 
     --cor03: #FFEBC0; 
     --cor04: #FFDF88;  
+
+    --font1: 'Passion One', cursive;
+    
+
 }
+
+@font-face {
+    font-family: 'Great'; 
+    src: url('../fontes/GreatVibes-Regular.ttf') format('truetype');
+}
+
 
 body {
     background: linear-gradient(to right, #CBAC98, #580521);
@@ -18,6 +36,30 @@ body {
     min-height: 100vh;
     text-align: center;
 }
+
+
+.texto-fundo {
+    position: absolute;
+    font-family:'Great', cursive; 
+    top: 2%;
+    left: -6%;
+    display: flex;
+    font-size: 146px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.1);
+    transform: rotate(-30deg);
+    z-index: -1;
+}
+
+
+
+
+.texto-fundo span {
+    display: inline-block;
+    transform: rotate(calc(-5deg + var(--angle, 0deg))); /* Rotação individual */
+    margin: 0 5px;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -73,7 +115,7 @@ body, html {
     border-radius: 50%;
     border: 1px solid white;
     box-shadow: 0 0 30px rgba(255, 217, 0, 0.644);
-    margin: 30px auto 30px;
+    margin: 110px auto 30px;
     overflow: hidden;
     background-position: top center;
     animation: float 6s ease-in-out infinite; 
