@@ -11,8 +11,6 @@
 
 :root {
     
-    --dourado:#FFD700;
-    --roxo: #9B59B6;
     --cor01: #CBAC98; 
     --cor02: #580521; 
     --cor03: #FFEBC0; 
@@ -38,26 +36,28 @@ body {
 }
 
 
-.texto-fundo {
-    position: absolute;
-    font-family:'Great', cursive; 
-    top: 2%;
-    left: -6%;
-    display: flex;
-    font-size: 146px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.1);
-    transform: rotate(-30deg);
-    z-index: -1;
+.titulo {
+    position: relative; /* Mantém o controle sobre os elementos internos */
+    display: inline-block; /* Ajusta ao tamanho do texto */
+    text-align: left; /* Alinha o texto à esquerda */
 }
 
+.psicologia {
+    font-size: 110px;
+    font-weight: bold;
+    color: #ffdf8873;
+    font-family: 'Great', cursive;
+    display: block; /* Garante que fique em cima */
+}
 
-
-
-.texto-fundo span {
-    display: inline-block;
-    transform: rotate(calc(-5deg + var(--angle, 0deg))); /* Rotação individual */
-    margin: 0 5px;
+.subtitulo {
+    font-size: 49px; /* Ajuste o tamanho do "2025.1" */
+    font-family: 'Great', cursive;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    left: 10px; /* Move um pouco para a esquerda */
+    top: 110px; /* Ajuste essa distância para ficar logo abaixo */
 }
 
 body, html {
