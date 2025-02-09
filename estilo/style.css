@@ -245,13 +245,13 @@ h1 {
 }
 
 .typing {
-    font-size: 3.5rem;
+    font-size: 3.5em;
     color: var(--cor2);
     border-right: 2px solid #D28FB1;  /* Simula o cursor */
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    padding: 6px 4px 6px 4px;
+    padding: 6px 4px 34px 4px;
     font-family: 'Dancing Script', cursive;
     margin: 20px 0;
     word-wrap: break-word;
@@ -291,8 +291,6 @@ h1 {
     transition: background-image 0.5s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 1;
     box-shadow: 4px 6px 5px 1px #00000034;
-  
-
 
 }
 .animacao {
