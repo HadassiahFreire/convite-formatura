@@ -161,7 +161,7 @@ h1 {
     padding: 30px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(3px);
     background-position: top center;
     transition: all 0.2s ease-in-out;
     opacity: 1;
@@ -195,7 +195,7 @@ h1 {
     position: relative;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.1); /* Efeito de vidro */
-    backdrop-filter: blur(30px); /* Desfoque para efeito de vidro */
+    backdrop-filter: blur(3px); /* Desfoque para efeito de vidro */
     transition: all 0.4s ease-in-out;
     color: white;
     z-index: 1;
@@ -377,4 +377,62 @@ h1 {
     h1.typing {
         font-size: 2rem; /* Ajusta o tamanho do texto em telas menores */
     }
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    border-top: 1px solid #ddd;
+    margin-top: auto;
+    font-weight: lighter;
+    font-style: oblique;
+    background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px); /* Aplica o desfoque apenas ao fundo */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidade com Safari */
+    position: relative; /* Mantém o footer no fluxo normal */
+    z-index: 10; /* Garante que o footer fique acima do fundo */
+}
+footer p {
+    text-align: center;
+    color: white;
+    margin-top: auto;
+    font-weight: lighter;
+    font-style: oblique;
+    filter: none; /* Remove o blur do texto */
+    font-family: cursive;
+    font-size: 15px;
+}
+strong {
+
+    font-family: 'Great', cursive;
+    font-size: 20px;
+    font-weight: bolder;
+
+ 
+
+}
+
+footer:hover {
+    transform: scale(1);
+    backdrop-filter: none;
+    color: #FFDF88; /* Para destacar o texto */
+    background: transparent;
+    border: 1px solid #FFDF88 ;
+    opacity: 1px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    font-weight: bolder;
+    background-color: #cbac985d; 
+
+}
+footer:hover p {
+    transform: scale(1);
+    backdrop-filter: none;
+    color: #FFDF88; /* Para destacar o texto */
+    opacity: 1px;
+    font-weight: bolder;
+   
+    
+
 }
