@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! 🎉</title>
+    <style>
+        :root {
+            --cor01: #CBAC98;
+            --cor02: #580521;
+            --cor03: #FFEBC0;
+            --cor04: #FFDF88;
+            --font1: 'Passion One', cursive;
+            --font2: 'Great';
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font1), sans-serif;
+            background-color: var(--cor03);
+            color: var(--cor02);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+            background: linear-gradient(145deg, var(--cor03), var(--cor04));
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .thank-you-container h1 {
+            font-size: 3rem;
+            font-family: var(--font2), cursive;
+            color: var(--cor01);
+            margin: 0;
+        }
+
+        .thank-you-container p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--cor02);
+        }
+
+        .thank-you-container .button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
+            font-size: 1.2rem;
+            font-family: var(--font1), sans-serif;
+            background-color: var(--cor01);
+            color: var(--cor03);
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .thank-you-container .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <h1>🎉 Obrigada! 🎉</h1>
+        <p>Fico muito feliz por você celebrar este momento comigo!</p>
+        <p>Até lá! 💕</p>
+        <a href="index.html" class="button">Voltar ao convite</a>
+    </div>
+</body>
+</html>
+
