@@ -104,13 +104,12 @@
         </div>
     </footer>
 
-    <!-- Formulário oculto para o envio ao Formspree -->
-    <form id="response-form" action="https://formspree.io/f/mvgzqvkb" method="POST" style="display: none;">
+     <!-- Formulário oculto para o envio ao Formspree -->
+     <form id="response-form" action="https://formspree.io/f/mvgzqvkb" method="POST" style="display: none;">
         <input type="hidden" name="_subject" value="Confirmação de Presença">
-        <input type="hidden" name="_next" value="https://hadassiahfreire.github.io/convite-formatura/Obrigada">
+        <input type="hidden" name="_next" value="https://seu-site.com/obrigado">
         <input type="text" name="nome" id="nome" placeholder="Seu nome">
         <input type="text" name="status" id="status">
-        
     </form>
 
     <script>
@@ -140,6 +139,48 @@
             document.getElementById("nome").value = prompt("Que pena! Espero te ver em outra oportunidade 😢. Qual é o seu nome?"); // Pede o nome
             document.getElementById("response-form").submit(); // Envia o formulário
         }
+    </script>
+
+    <script>
+        // Efeito de digitação no título
+        const titulo = document.querySelector('h1');
+        titulo.style.opacity = '0';
+
+        setTimeout(() => {
+            titulo.style.transition = 'opacity 1.5s';
+            titulo.style.opacity = '1';
+        }, 1000);
+
+        const textElement = document.getElementById('typing-text'); 
+        const text = "Celebre este momento comigo"; // O texto que será digitado
+        let index = 0; 
+        let isDeleting = false;
+
+        function typeEffect() {
+            if (!isDeleting && index < text.length) {
+                textElement.textContent = text.substring(0, index + 1); // Adiciona uma letra
+                index++;
+                setTimeout(typeEffect, 150); // Tempo para cada letra aparecer
+            } else if (isDeleting && index > 0) {
+                textElement.textContent = text.substring(0, index - 1); // Remove uma letra
+                index--;
+                setTimeout(typeEffect, 100); // Tempo para apagar
+            } else {
+                isDeleting = !isDeleting; // Alterna entre escrever e apagar
+                setTimeout(typeEffect, 1000); // Tempo de espera antes de inverter
+            }
+        }
+
+        // Adicionar evento para ajustar o texto responsivamente
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 768) {
+                textElement.style.fontSize = '1.5rem'; // Ajuste de tamanho em telas menores
+            } else {
+                textElement.style.fontSize = '3.5rem'; // Ajuste de tamanho em telas maiores
+            }
+        });
+
+        typeEffect();
     </script>
 
     <script>
